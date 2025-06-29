@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aspire Sandbox Loading</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: #000 url('background.png') center center no-repeat;
+      background-size: contain;
+    }
+
+    .centered {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .loading-bar {
+      height: 8px;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 auto;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loading-bar::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 8px;
+      background: #00ccff;
+      animation: loadAnim 2s linear infinite;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1em;
+      color: #aaa;
+      font-style: italic;
+      animation: fadein 1s ease-in;
+    }
+
+    @keyframes loadAnim {
+      0% { left: -100px; }
+      100% { left: 300px; }
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="centered">
+    <div class="subtitle">Exploring the bigcity skies... 🚀</div>
+    <div class="loading-bar"></div>
+    <div class="message" id="loadingMessage">Loading...</div>
+  </div>
+
+  <script>
+    const messages = [
+      "Calibrating jet boosters...",
+      "Loading bigcity skyline...",
+      "Unpacking props and physics...",
+      "Aligning orbital cannon...",
+      "Injecting creativity protocol...",
+      "Launching into sandbox orbit...",
+      "Establishing gravity fields...",
+      "Contacting mission control...",
+      "Verifying LUA modules...",
+      "Rendering imagination layers..."
+    ];
+    document.getElementById('loadingMessage').innerText =
+      messages[Math.floor(Math.random() * messages.length)];
+  </script>
+</body>
+</html>
